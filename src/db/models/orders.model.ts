@@ -1,14 +1,21 @@
 import {Schema} from 'mongoose'
-import { IProduct } from './product.model'
 
-interface IProductOrder extends IProduct {
+
+
+interface IProductOrder{
+    product_id: string
     quantity: number
+}
+
+interface IUserOrder{
+    firstName: string,
+    email: string
 }
 
 interface IOrder {
     date: Date
     store: string
-    user: string
+    user: Array<IUserOrder>
     products: Array<IProductOrder>
 }
 
@@ -39,8 +46,8 @@ const orderSchema = new Schema<IOrder>({
         type: String,
         required:true
        },
-       user_id: {
-        type:Schema.Types.ObjectId,
+       email: {
+        type:String,
         required:true,
        }
     },
