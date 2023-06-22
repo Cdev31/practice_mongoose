@@ -11,7 +11,7 @@ interface IUser {
     email: string
     password: string
     dateOfBirth: Date
-    role: Role | String
+    role: Role | string
 }
 
 
@@ -39,7 +39,8 @@ const userSchema = new Schema<IUser>({
         required:true
     },
     role: {
-        type: Object.values(Role),
+        type: String,
+        enum: Object.values(Role),
         required:true,
         default: Role.NORMAL
     }

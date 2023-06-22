@@ -16,7 +16,8 @@ interface IReturn {
 const returnSchema = new Schema<IReturn>({
     date: {
         type: Date,
-        required: true
+        required: true,
+        default: Date.now()
     },
     store: {
         type: String,
